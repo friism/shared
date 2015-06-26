@@ -12,9 +12,6 @@ namespace HelloMvc
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseErrorPage();
-
-            app.UseMvcWithDefaultRoute();
         }
     }
 }
