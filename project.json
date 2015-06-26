@@ -1,9 +1,5 @@
 {
     "version": "1.0.0-*",
-    "webroot": "wwwroot",
-    "exclude": [
-        "wwwroot"
-    ],
     "packExclude": [
         "**.kproj",
         "**.user",
@@ -15,7 +11,6 @@
         "Microsoft.AspNet.Mvc": "6.0.0-*"
     },
     "commands": {
-        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001",
         "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
     },
     "frameworks": {

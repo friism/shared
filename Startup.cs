@@ -15,8 +15,6 @@ namespace HelloMvc
             app.UseErrorPage();
 
             app.UseMvcWithDefaultRoute();
-
-            app.UseWelcomePage();
         }
     }
 }
