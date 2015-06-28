@@ -4,36 +4,36 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Mvc.Internal;
 
-namespace HelloMvc
+namespace Shared
 {
-    // TODO - check to see if this is still needed by Kestrel
-    public class KestrelWorkaround
-    {
+	// TODO - check to see if this is still needed by Kestrel
+	public class KestrelWorkaround
+	{
 	readonly RequestDelegate next;
 	
 	public KestrelWorkaround(RequestDelegate next)
 	{
-	    this.next = next;
+		this.next = next;
 	}
 	
 	public async Task Invoke(HttpContext ctx)
 	{
-	    var resp = ctx.Response;
-	    
-	    // Replace the body stream with a fake one
-	    var realBodyStream = resp.Body;
-	    var fakeBody = new MemoryStream();
-	    resp.Body = new NonDisposableStream(fakeBody);
-	    
-	    await next(ctx);
-	    
-	    // Thanks to NonDisposableStream, we can just move the position on our MemoryStream
-	    fakeBody.Position = 0;
-	    
-	    // Swap the real body stream back in
-	    resp.Body = realBodyStream;
-	    
-	    await fakeBody.CopyToAsync(resp.Body);
+		var resp = ctx.Response;
+		
+		// Replace the body stream with a fake one
+		var realBodyStream = resp.Body;
+		var fakeBody = new MemoryStream();
+		resp.Body = new NonDisposableStream(fakeBody);
+		
+		await next(ctx);
+		
+		// Thanks to NonDisposableStream, we can just move the position on our MemoryStream
+		fakeBody.Position = 0;
+		
+		// Swap the real body stream back in
+		resp.Body = realBodyStream;
+		
+		await fakeBody.CopyToAsync(resp.Body);
 	}
-    }
+	}
 }

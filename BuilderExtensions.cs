@@ -1,12 +1,12 @@
 using Microsoft.AspNet.Builder;
 
-namespace HelloMvc
+namespace Shared
 {
-    public static class BuilderExtensions
-    {
-	public static IApplicationBuilder UseKestrelWorkaround(this IApplicationBuilder app)
+	public static class BuilderExtensions
 	{
-	    return app.UseMiddleware<KestrelWorkaround>();
+		public static IApplicationBuilder UseKestrelWorkaround(this IApplicationBuilder app)
+		{
+			return app.UseMiddleware<KestrelWorkaround>();
+		}
 	}
-    }
 }
