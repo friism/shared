@@ -1,1 +1,1 @@
-FROM aspnet:latest
+FROM friism/aspnet:latest-onbuild
