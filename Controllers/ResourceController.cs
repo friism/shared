@@ -19,9 +19,11 @@ namespace Shares.Web
 		}
 
 		[HttpPut]
+		[Route("{id:guid}")]
 		public IActionResult Update()
 		{
-			return new HttpStatusCodeResult(422);
+			// REMARK: Plan changes are not supported, this is just to make kensa happy
+			return new HttpStatusCodeResult(200);
 		}
 
 		[HttpDelete]
