@@ -1,0 +1,26 @@
+{
+  "id": "shared",
+  "api": {
+    "config_vars": [
+
+    ],
+    "requires": [
+
+    ],
+    "regions": [
+      "us",
+      "eu"
+    ],
+    "password": "",
+    "sso_salt": "",
+    "production": {
+      "base_url": "https://shared-configvars.herokuapp.com/heroku/resources",
+      "sso_url": "https://shared-configvars.herokuapp.com/sso/login"
+    },
+    "test": {
+      "base_url": "http://web:5004/heroku/resources",
+      "sso_url": "http://web:5004/sso/login"
+    }
+  },
+  "$base": 143553127285925
+}
